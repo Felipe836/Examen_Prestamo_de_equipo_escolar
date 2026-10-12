@@ -1,0 +1,51 @@
+contexto:la empresa "prestahard" necesita un sistema web el para controlar los equipos que presta (laptop, proyectores, mouses, teclados, routers, monitores)el inventario debe de estar ligado a los prestamos (tenias 10 laptops en inventario, se prestan 3, ahora en inventario tienes 7 laptops) solo existe un encargado, no se podra aceptar un prestamo si no se cuenta con los equipos disponibles (piden pretsados 4 monitores y en invetario hay 2, no se podra acpetar el prestamo)
+
+solo pueden acceder a la primer ventan(Landing Page pública) los usuarios sin iniciar sesion, despues de iniciar sesion podran acceder a las demas ventanas
+
+
+Control de Acceso
+Visitantes sin sesión solo pueden ver la Landing Page pública.
+Usuarios autenticados acceden al sistema interno (Dashboard, listado de notas, creación/edición/eliminación).
+Botón de "Iniciar Sesión" / "Registrarse" siempre visible en la barra de navegación fija superior de la landing page.
+sus apartados seran: acerca de nosotros(que hace la empresa), contactos(numero celular, empresa@gmial.com, oficialempresa@gmail.com), reglas de prestamos(Los equipos deben ser entregados en la fecha acordada, se les dara revision y si existe conflicto se reportara) 
+agrega un dasboard con KPI 
+
+ventanas disponoibles para solicitante (inventario, prestamo y estado) para encargado (administar equipos, solicitudes, incidentes) 
+
+roles:El rol de solicitante sus permisos son (iniciar sesion, consultar los equipos disponibles, solicitar prestamos, revisar su estado, reportar incidentes). El rol de encargado sus permisos son(administrar equipos y categorias, decidir solicitudes (denegar, pendiente, entregado) registra entregas y devoluciones, atender incidentes
+
+stack tecnologico : vamos a trabajar con laravel 13, utlizando  arquitectura mvc,php 8.4 y base de datos en sqlite, relaciones Eloquent, rutas protegidas y middleware por rol.
+
+tablas con campos
+user (nombre, contraseña, email, direccion)
+loans (Folio de loans, date_entrega, date_final, loan_items, cantidad, solicitud (denegar, pendiente, entregado), devolucion
+loan_items (equipo, cantidad)
+incidents (equipo, daño, especificaciones estado(reparado, por revisar))
+categories (equipo(
+inventaris (categoria, equipo, cantidad, especificaciones
+
+relaciones: users realizaran un loans tendra uno o varios loan_items tendra uno a uno incidents    categories tendre uno o varios equipment (de ser necesario mejora las relaciones)
+
+vamos a trabajar solamente en app.css app.js y con plantillas blade.              
+
+solicitud : generame archivo por archivo y codigo completo como este proyecto primero dime las carpetas que debo de crear y me vas a dar codigo completo dame primero las migraciones despues dame los controladores , despues dame el archivo de estilos, depsues .js , despues las paginas o vistas y por ultimo dame el codigo de la plantilla blade y las rutas tambien necesito que des una seeder con el usuario que ya han escrito diferentes tipos de notas                                                        
+
+
+
+utiliza esta paleta de colores agrega un modo claro y modo oscuro recuerda que tienes que respetar que todo texto sea visible en ambos modos, que el texto no se salga de su cuadro y el boton de iniciar sesion tiene que ser visible en todo momento( no debe de ir en lo mas bajo de la pagina ni quedarese en la parte superior) 
+/* CSS HEX */
+--vintage-grape: #594157ff;
+--dusty-grape: #726da8ff;
+--glaucous: #7d8cc4ff;
+--frosted-blue: #a0d2dbff;
+--frozen-water: #bee7e8ff;
+
+
+fuente
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+
+
+toma como referenci para la interfaz la captura que te di para el inicio de sesion y para la plantilla blade necesito que la interfaz no tenga emojis , tenga estilo moderno, bordes redondeados, sin degradados , solo iconos .svg, utilzar un siderbar lateral, el menu debes ser fijo (todo el tiempo debe ser visible parqa el usuario si scrollea permanesera en la pare superior), recuerda que no se puede solicitar un productor para una fecha anterior solo es de hoy en adelante, el .html sea .HTML semantico dependiendo la maquetacion  el .css que sea responsivo (adapatable), iniciar sesion y registrar nuevo usuario seran paginas diferentes, hazme una buena interfaz y plantillas recuerda darme el codigo completo en orde la creacion de archivos y carpetas crea un inicio de sesion sencillo, sin instalar librerias externas, solo con el controlador crear middlewares de acceso. la base de datos debe de estar correctamente normlaizada y declarada en las migraciones, para ejecutar solamente php artisan migrate:fresh - seed
